@@ -1,9 +1,22 @@
 package com.example.filebrowser;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "users")
 public class User {
-    private final String username;
-    private final String password;
-    private final String email;
+    @Id
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String email;
+
+    public User() {}
 
     public User(String username, String password, String email){
         this.username = username;
